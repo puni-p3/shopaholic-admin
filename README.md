@@ -59,3 +59,22 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+
+
+## Amazon Linux 2023 uses dnf (Dandified YUM) as its package manager
+
+### List All Installed Packages:
+`sudo dnf list installed`
+
+### List available packages:
+`sudo dnf list available`
+
+### Install a package:
+`sudo dnf install <package_name>`
+
+### Remove a package:
+`sudo dnf remove <package_name>`
+
+### Search for a package:
+`sudo dnf search <package_name>`
