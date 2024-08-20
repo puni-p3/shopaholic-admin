@@ -891,6 +891,38 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiPlaylistPlaylist extends Schema.CollectionType {
+  collectionName: 'playlists';
+  info: {
+    singularName: 'playlist';
+    pluralName: 'playlists';
+    displayName: 'Playlist';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    cover: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::playlist.playlist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::playlist.playlist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTrackTrack extends Schema.CollectionType {
   collectionName: 'tracks';
   info: {
@@ -949,6 +981,7 @@ declare module '@strapi/types' {
       'api::album.album': ApiAlbumAlbum;
       'api::artist.artist': ApiArtistArtist;
       'api::category.category': ApiCategoryCategory;
+      'api::playlist.playlist': ApiPlaylistPlaylist;
       'api::track.track': ApiTrackTrack;
     }
   }
