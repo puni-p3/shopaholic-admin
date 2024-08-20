@@ -9,7 +9,7 @@ exports.default = [
         config: {
             enabled: true,
             headers: '*',
-            origin: ['http://localhost:1337', 'https://hill-music.web.app']
+            origin: ['http://localhost:4200', 'https://hill-music.web.app']
         }
     },
     'strapi::poweredBy',
