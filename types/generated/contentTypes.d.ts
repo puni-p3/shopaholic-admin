@@ -863,16 +863,22 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    label: Attribute.String & Attribute.Required & Attribute.Unique;
+    label: Attribute.String & Attribute.Required;
     is_active: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<true>;
     icon: Attribute.Media<'images'>;
+    parent: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
